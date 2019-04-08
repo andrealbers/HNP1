@@ -12,7 +12,7 @@ SEVSEG1	equ 90h 		;Siebensegment 1
 SEVSEG2	equ 92h 		;Siebensegment 2
 
 START: 
-	mov ax, 0x0000
+	xor ax, ax		;ax löschen
 	in al, LEVER 
 	mov bl, al 
 ;Maskierung 
@@ -20,39 +20,28 @@ START:
 	and al, 0xF0 		;Nibble 2 
 	
 	mov cl, 4		;lade in cl Verschiebungsgröße
-	SAR ax, cl 		;Shift Bitmuster al 4 rechts 
+	SHR ax, cl 		;Shift Bitmuster al 4 rechts 
 
 	sub al, bl		;Subtrahiere von al, bl 
 
 	out LED, al 
-	 
-	jns POSITIV 		;Wenn SignFlag=0, Ergebnis positiv 
-	js NEGATIV 		;Wenn SignFlag=1, Ergebnis negativ
-	
-POSITIV: 
-	
-	add ax, NUMB		;Addiere Adresse von Element 0 aus NUMB mit Ergebnis
-	mov bx, ax		;Schreibe Wert in bx 
-	mov ax, [bx]		;Nutze Wert von bx als Adresse 
-	out SEVSEG1, al 
- 
-	mov al, 0x00		;Vorzeichen löschen 
-	out SEVSEG2, al
-	
-jmp START
 
- 
-NEGATIV: 
+	mov cl, al		;Nibble 1 kopieren 
+	shr cx, 1		;Ergebnis shiften 
+	shr cx, 1
+	shr cx, 1
+	shr cx, 1
 
-	not al 			;Zweierkomplement	
-	inc al 
-
-	add ax, NUMB		;Siehe POSITIV	
+	and al, 0x0F		;Ausgabe Ergebnis 1 	
+	add ax, NUMB		
 	mov bx, ax
 	mov al, [bx]
 	out SEVSEG1, al 
- 
-	mov al, 0x40
-	out SEVSEG2, al
-
-jmp START 
+	
+	
+	mov bx, NUMB		;Ausgabe Ergebnis 2
+	mov al, cl
+	xlat
+	out SEVSEG2, al 
+	
+	jmp START 
