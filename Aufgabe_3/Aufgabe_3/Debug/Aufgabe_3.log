@@ -1,8 +1,5 @@
 ﻿  main.c
-d:\onedrive\github\hnp1\aufgabe_3\aufgabe_3\main.c(6): warning C4477: "printf": Die Formatzeichenfolge "%X" erfordert ein Argument vom Typ "unsigned int", das variadic-Argument "1" weist aber den Typ "unsigned char *" auf.
-d:\onedrive\github\hnp1\aufgabe_3\aufgabe_3\main.c(7): warning C4477: "printf": Die Formatzeichenfolge "%X" erfordert ein Argument vom Typ "unsigned int", das variadic-Argument "1" weist aber den Typ "unsigned char *" auf.
-d:\onedrive\github\hnp1\aufgabe_3\aufgabe_3\main.c(8): warning C4477: "printf": Die Formatzeichenfolge "%X" erfordert ein Argument vom Typ "unsigned int", das variadic-Argument "1" weist aber den Typ "unsigned char *" auf.
-d:\onedrive\github\hnp1\aufgabe_3\aufgabe_3\main.c(22): warning C4047: "Funktion": Anzahl der Dereferenzierungen bei "int *" und "int" unterschiedlich
-d:\onedrive\github\hnp1\aufgabe_3\aufgabe_3\main.c(22): warning C4024: "eingabe": unterschiedliche Typen für formalen und übergebenen Parameter 1
-d:\onedrive\github\hnp1\aufgabe_3\aufgabe_3\main.c(23): warning C4477: "printf": Die Formatzeichenfolge "%d" erfordert ein Argument vom Typ "int", das variadic-Argument "1" weist aber den Typ "int *" auf.
+D:\OneDrive\GitHub\HNP1\Aufgabe_3\Aufgabe_3\main.c(47): warning C4047: "=": Anzahl der Dereferenzierungen bei "int" und "char *" unterschiedlich
+D:\OneDrive\GitHub\HNP1\Aufgabe_3\Aufgabe_3\main.c(43): warning C4047: "Initialisierung": Anzahl der Dereferenzierungen bei "char *" und "char **" unterschiedlich
+D:\OneDrive\GitHub\HNP1\Aufgabe_3\Aufgabe_3\main.c(77): warning C4101: "zeichenkette": Unreferenzierte lokale Variable
   Aufgabe_3.vcxproj -> D:\OneDrive\GitHub\HNP1\Aufgabe_3\Debug\Aufgabe_3.exe
