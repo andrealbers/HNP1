@@ -21,7 +21,7 @@ void memdump(unsigned char* string, int zeilen)   //string = Adresse vom Element
 
 int main(int argc, char** argv)                        //argc = Anzahl Zeichenketten (4); argv[1] = 'Hallo'; argv[2] = Ostfriesland!; argv[3] = Anzahl Zeilen
 {
-	printf("ADDR\t\t00 01 02 03 04 05 06 07 09 0A 0B 0C 0D 0E 0F\t\t0123456789ABCDEF");
+	printf("ADDR\t\t00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F\t\t0123456789ABCDEF");
 
 
 	/*ZEILENANZAHL BESTIMMEN AUS PARAMETERÜBERGABE*/
@@ -58,17 +58,43 @@ int main(int argc, char** argv)                        //argc = Anzahl Zeichenke
 	int zeilen[15];
 	zeilen[0] = adressenull;
 
-	for (int i = 1; i <= zeilenanzahl; i++)
+	for (int i = 1; i < zeilenanzahl; i++, adressenull = adressenull+16)
 	{
-		zeilen[i] = adressenull + 16;
-		adressenull = adressenull + 16;
+		zeilen[i] = adressenull + 16;		
 	}
 
 	/*********************************************/
 
-	for (int i = 0; i <= zeilenanzahl; i++)
+	for (int i = 0; i < zeilenanzahl; i++)
 	{
 		printf("\n0x%X", zeilen[i]);
+		printf("\t");
+
+		int startadresse = zeilen[i];
+		char *wertadresse = startadresse;
+
+		for (int k = 0; k < 16; k++)
+		{
+			char *wertadresse = startadresse;
+			printf("%X ", *wertadresse);
+			startadresse = startadresse + 1;
+
+		}
+		
+
+		/*
+		int *startadresse;
+		startadresse = argv[1];
+		char wertadresse = *startadresse;
+		*/
+
+
+		/*for (int k = 0; k < 16; k++)
+		{
+			printf("\t\t%x", *wertadresse);
+			wertadresse++;
+		}*/
+		
 	}
 
 

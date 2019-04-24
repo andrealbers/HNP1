@@ -1,5 +1,7 @@
 ﻿  main.c
 D:\OneDrive\GitHub\HNP1\Aufgabe_3\Aufgabe_3\main.c(47): warning C4047: "=": Anzahl der Dereferenzierungen bei "int" und "char *" unterschiedlich
 D:\OneDrive\GitHub\HNP1\Aufgabe_3\Aufgabe_3\main.c(43): warning C4047: "Initialisierung": Anzahl der Dereferenzierungen bei "char *" und "char **" unterschiedlich
-D:\OneDrive\GitHub\HNP1\Aufgabe_3\Aufgabe_3\main.c(77): warning C4101: "zeichenkette": Unreferenzierte lokale Variable
+D:\OneDrive\GitHub\HNP1\Aufgabe_3\Aufgabe_3\main.c(74): warning C4047: "Initialisierung": Anzahl der Dereferenzierungen bei "char *" und "int" unterschiedlich
+D:\OneDrive\GitHub\HNP1\Aufgabe_3\Aufgabe_3\main.c(78): warning C4047: "Initialisierung": Anzahl der Dereferenzierungen bei "char *" und "int" unterschiedlich
+D:\OneDrive\GitHub\HNP1\Aufgabe_3\Aufgabe_3\main.c(103): warning C4101: "zeichenkette": Unreferenzierte lokale Variable
   Aufgabe_3.vcxproj -> D:\OneDrive\GitHub\HNP1\Aufgabe_3\Debug\Aufgabe_3.exe
