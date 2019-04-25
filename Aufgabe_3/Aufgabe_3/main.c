@@ -21,8 +21,7 @@ void memdump(unsigned char* string, int zeilen)   //string = Adresse vom Element
 
 int main(int argc, char** argv)                        //argc = Anzahl Zeichenketten (4); argv[1] = 'Hallo'; argv[2] = Ostfriesland!; argv[3] = Anzahl Zeilen
 {
-	printf("ADDR\t\t00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F\t\t0123456789ABCDEF");
-
+	printf("ADDR\t\t00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F\t\t0123456789ABCDEF\n");
 
 	/*ZEILENANZAHL BESTIMMEN AUS PARAMETERÜBERGABE*/
 	int zeilenanzahl = 0;
@@ -36,12 +35,24 @@ int main(int argc, char** argv)                        //argc = Anzahl Zeichenke
 	}
 	/*********************************************/
 
-
 	/*ADRESSE MIT ENDUNG 0 BESTIMMEN*/
 	int nullcheck = 0;
 	int adressenull;
 	char* adresse = argv;
+	/*
+	long long int adressvalue = *argv;
+	char* adress = adressvalue;
+	int i;
+	printf("\n%x\n", *argv);
+	printf("\n%p\n", *argv);
+	//Adresse 1 über Modulo
+	do
+	{
+		adressvalue--;
+		printf("\n%x", adressvalue);
+	} while (adressvalue % 16 != 0);
 
+	*/
 	for (int i = 0; i < 16 && nullcheck == 0; i++)
 	{
 		adressenull = adresse;
@@ -53,48 +64,48 @@ int main(int argc, char** argv)                        //argc = Anzahl Zeichenke
 	}
 	/*********************************************/
 
-
-	/*WEITERE ADRESSEN TEILBAR DURCH 16 FINDEN*/
+	/*WEITERE ADRESSEN TEILBAR DURCH 16*/
 	int zeilen[15];
 	zeilen[0] = adressenull;
 
-	for (int i = 1; i < zeilenanzahl; i++, adressenull = adressenull+16)
+	for (int i = 1; i < zeilenanzahl; i++, adressenull = adressenull + 16)
 	{
-		zeilen[i] = adressenull + 16;		
+		zeilen[i] = adressenull + 16;
 	}
 
 	/*********************************************/
 
 	for (int i = 0; i < zeilenanzahl; i++)
 	{
-		printf("\n0x%X", zeilen[i]);
+		printf("\n0x%X", zeilen[i]);   //ADRESSE SCHREIBEN
 		printf("\t");
 
 		int startadresse = zeilen[i];
-		char *wertadresse = startadresse;
-
+		unsigned char* wertadresse = startadresse;
 		for (int k = 0; k < 16; k++)
 		{
-			char *wertadresse = startadresse;
-			printf("%X ", *wertadresse);
-			startadresse = startadresse + 1;
+			unsigned char* wertadresse = startadresse;
+			printf("%02X ", *wertadresse);
+			startadresse++;
+		}
+
+		printf("\t");
+		startadresse = zeilen[i];
+		for (int j = 0; j < 16; j++)
+		{
+			unsigned char* wertadresse = startadresse;
+			if (*wertadresse == '\0')
+			{
+				printf(".");
+			}
+			else
+			{
+				printf("%c", *wertadresse);
+			}
+			startadresse++;
 
 		}
-		
 
-		/*
-		int *startadresse;
-		startadresse = argv[1];
-		char wertadresse = *startadresse;
-		*/
-
-
-		/*for (int k = 0; k < 16; k++)
-		{
-			printf("\t\t%x", *wertadresse);
-			wertadresse++;
-		}*/
-		
 	}
 
 
