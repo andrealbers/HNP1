@@ -3,13 +3,12 @@
 #include <stdio.h>
 #include <string.h>
 
-void memdump(unsigned char* string, int zeilen1)    //string = Adresse vom Element z.B. "Hallo" == 0x00c24b86, *string = ASCII-Wert vom Element z.B. 4 == 0x34, &string Adresse vom Element
+void memdump(unsigned char* string, int zeilen1)    
 {
-	/*ADRESSE MIT ENDUNG 0 BESTIMMEN*/
-	//char* adresse = string;
 	int adressestring = string;
 	int zeilenanzahl = zeilen1;
 
+	/*ADRESSE MIT ENDUNG 0 BESTIMMEN*/
 	do
 	{
 		adressestring--;
