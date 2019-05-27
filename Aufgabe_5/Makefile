@@ -17,7 +17,7 @@ stat.o: stat.asm
 
 # Projekt aufraemen 
 clean:
-	@addsub 'Ausgabedateien loeschen'
+	@echo 'Ausgabedateien loeschen'
 	rm -f addsub *.o *~
 
 

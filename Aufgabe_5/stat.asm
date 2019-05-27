@@ -7,10 +7,9 @@ _stat:
 	push ebp				; neuer Stackframe: BasePointer retten
 	mov ebp,esp				; Stackpointer zum neuen BasePointer machen
 
-	sub esp, 4				; Schiebe Stackpointer auf nächstes Element (32Bit) 
-
 jump: 
-	cmp byte [ebp+16], '+'	;Operationsabfrage 
+	xor eax, eax
+	cmp byte [ebp+16], '+'			;Operationsabfrage 
 	je addi
 	jmp subt
 	
@@ -27,14 +26,14 @@ subt: 						;Subtraktion der Werte aus dem Stack an Stelle 2(Wert1) & 3(Wert2)
 flag:				
  	pushfd 					;Holen der Flags 
 	pop edx					;Schreiben der Flags in das Datenregister
-	mov ebx, [ebp+20]		;Holen der Adresse des Pointers 
-	mov [ebx], edx 			;Schreiben der Flags in den Pointer
+	mov ebx, [ebp+20]			;Holen der Adresse des Pointers 
+	mov [ebx], edx 				;Schreiben der Flags in den Pointer
 	
 
-	mov esp, ebp			; Stackpointer auf Ret Adresse  
-    pop ebp					; BP wiederherstellen
-    ret						; um die Uebergabeparameter kuemmert sich
-							; das rufende Programm (add esp, 16)		
+	mov esp, ebp				; Stackpointer auf Ret Adresse  
+    	pop ebp					; BP wiederherstellen
+    	ret					; um die Uebergabeparameter kuemmert sich
+						; das rufende Programm (add esp, 16)		
 
 
 ; **** Daten-Segment ****
