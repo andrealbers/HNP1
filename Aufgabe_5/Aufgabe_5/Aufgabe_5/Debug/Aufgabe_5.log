@@ -1,5 +1,0 @@
-﻿  main.c
-D:\OneDrive\GitHub\HNP1\Aufgabe_5\Aufgabe_5\Aufgabe_5\main.c(45): warning C4047: "Funktion": Anzahl der Dereferenzierungen bei "unsigned int *" und "int" unterschiedlich
-D:\OneDrive\GitHub\HNP1\Aufgabe_5\Aufgabe_5\Aufgabe_5\main.c(45): warning C4024: "addsub": unterschiedliche Typen für formalen und übergebenen Parameter 4
-D:\OneDrive\GitHub\HNP1\Aufgabe_5\Aufgabe_5\Aufgabe_5\main.c(16): warning C4716: "addsub": Muss einen Wert zurückgeben
-  Aufgabe_5.vcxproj -> D:\OneDrive\GitHub\HNP1\Aufgabe_5\Aufgabe_5\Debug\Aufgabe_5.exe
